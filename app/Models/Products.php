@@ -16,10 +16,17 @@ class Products
     public $price;
     public $region_id;
 
-    public function __construct(){
+    /**
+     * Products constructor.
+     */
+    public function __construct()
+    {
         $this->conn = new DbConnection();
     }
 
+    /**
+     * @return array
+     */
     public function viewProducts()
     {
         $query = "SELECT * FROM " . $this->table_name . " ORDER BY name ASC";
@@ -30,6 +37,9 @@ class Products
         return $stmt->fetchAll();
     }
 
+    /**
+     * @return array
+     */
     public function viewProductsRegion()
     {
         $query = "SELECT * FROM " . $this->table_name . " WHERE ";
@@ -40,6 +50,9 @@ class Products
         return $stmt->fetchAll();
     }
 
+    /**
+     * @return bool
+     */
     public function deleteProducts()
     {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
@@ -54,6 +67,9 @@ class Products
         }
     }
 
+    /**
+     * @return bool
+     */
     public function createProducts()
     {
         $query = "INSERT INTO  " . $this->table_name . " SET
@@ -73,6 +89,9 @@ class Products
         }
     }
 
+    /**
+     * @return bool
+     */
     public function updateProducts()
     {
         $query = "UPDATE " . $this->table_name . "

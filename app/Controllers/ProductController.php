@@ -11,10 +11,16 @@ class ProductController
 {
     private $products;
 
+    /**
+     * ProductController constructor.
+     */
     public function __construct(){
         $this->products = new Products();
     }
 
+    /**
+     * @return mixed
+     */
     public function viewProducts()
     {
         if (Request::is('GET')) {
@@ -24,6 +30,9 @@ class ProductController
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function viewProductsRegion()
     {
         if (Request::is('GET')) {
@@ -34,6 +43,9 @@ class ProductController
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function createProductView()
     {
         if (Request::is('GET')) {
@@ -41,6 +53,9 @@ class ProductController
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function createProducts()
     {
 
@@ -60,6 +75,9 @@ class ProductController
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function updateProducts()
     {
         $this->products->id  = Request::get('productsID');
@@ -80,7 +98,9 @@ class ProductController
         }
     }
 
-
+    /**
+     * @return mixed
+     */
     public function deleteProducts()
     {
         if (Request::is('POST')) {

@@ -11,8 +11,12 @@ class DbConnection
     private $password = "root";
     public $conn;
 
-    // get the database connection
-    public function getConnection(){
+
+    /**
+     * @return \PDO
+     */
+    public function getConnection()
+    {
         $this->conn = null;
 
         try{

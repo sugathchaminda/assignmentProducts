@@ -10,19 +10,28 @@ use App\Models\LoginUser;
 class LoginController
 {
     const ADMIN_GROUP = 1;
-    const REGION_GROUP = 1;
+    const REGION_GROUP = 2;
 
     private $user;
 
+    /**
+     * LoginController constructor.
+     */
     public function __construct(){
         $this->user = new LoginUser();
     }
 
+    /**
+     * @return mixed
+     */
     public function viewLogin()
     {
         return view('viewLogin');
     }
 
+    /**
+     * @return mixed
+     */
     public function Login()
     {
         if (Request::is('POST')) {

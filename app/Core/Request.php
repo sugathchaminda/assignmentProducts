@@ -4,6 +4,9 @@ namespace App\Core;
 
 class Request
 {
+    /**
+     * @return string
+     */
     public static function uri()
     {
         return trim(
@@ -11,16 +14,27 @@ class Request
         );
     }
 
+    /**
+     * @return mixed
+     */
     public static function method()
     {
         return $_SERVER['REQUEST_METHOD'];
     }
 
+    /**
+     * @param $method
+     * @return bool
+     */
     public static function is($method)
     {
         return strtoupper($method) == $_SERVER['REQUEST_METHOD'];
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     */
     public static function get($key)
     {
         return $_REQUEST[$key];

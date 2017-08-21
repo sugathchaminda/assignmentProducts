@@ -16,11 +16,19 @@ class LoginUser
     public $password;
     public $region_id;
 
-    public function __construct(){
+    /**
+     * LoginUser constructor.
+     */
+    public function __construct()
+    {
         $this->conn = new DbConnection();
     }
 
-    public function login() {
+    /**
+     * @return mixed
+     */
+    public function login()
+    {
         $query = "SELECT user_id, group_id FROM " . $this->table_name.  " WHERE user_name = :username AND password = :password" ;
 
         $stmt = $this->conn->getConnection()->prepare($query);
